@@ -2,4 +2,4 @@
 
 FILE=/root/.config/kicad/fp-lib-table
 
-cp /usr/share/kicad/footprints/fp-lib-table $FILE
+cp /usr/share/kicad/template/fp-lib-table $FILE
