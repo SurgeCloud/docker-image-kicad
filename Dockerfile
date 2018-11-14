@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get -t stretch-backports install -y --no-install-recommends \
     kicad \
     kicad-common \
+    kicad-footprints \
+    kicad-symbols \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
@@ -33,8 +35,8 @@ RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 ENV LANG en_US.utf8
 
-RUN git clone https://github.com/KiCad/kicad-symbols.git /usr/share/kicad/library/
-RUN git clone https://github.com/KiCad/kicad-footprints.git /usr/share/kicad/footprints/
+#RUN git clone https://github.com/KiCad/kicad-symbols.git /usr/share/kicad/library/
+#RUN git clone https://github.com/KiCad/kicad-footprints.git /usr/share/kicad/footprints/
 
 RUN ./generate_fp_lib_table.sh && \
     ./generate_sym_lib_table.sh && \
