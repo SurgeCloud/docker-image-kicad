@@ -13,6 +13,7 @@ RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/s
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
+    ca-cacert \
     git \
     locales \
     ghostscript \
@@ -20,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-numpy \
     recordmydesktop \
     sudo \
+    xauth \
     xdotool \
     xvfb
 
