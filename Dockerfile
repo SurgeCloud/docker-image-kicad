@@ -7,6 +7,7 @@ WORKDIR /root
 COPY  ./generate_fp_lib_table.sh \
       ./generate_sym_lib_table.sh \
       ./generate_pcbnew_conf.sh \
+      ./generate_eeschema_conf.sh \
       /root/
 
 RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
@@ -41,6 +42,8 @@ ENV LANG en_US.utf8
 #RUN git clone https://github.com/KiCad/kicad-symbols.git /usr/share/kicad/library/
 #RUN git clone https://github.com/KiCad/kicad-footprints.git /usr/share/kicad/footprints/
 
+RUN mkdir -p /root/.config/kicad
 RUN ./generate_fp_lib_table.sh && \
     ./generate_sym_lib_table.sh && \
-    ./generate_pcbnew_conf.sh
+    ./generate_pcbnew_conf.sh && \
+    ./generate_eeschema_conf.sh
