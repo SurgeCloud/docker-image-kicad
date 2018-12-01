@@ -10,9 +10,9 @@ COPY  ./generate_fp_lib_table.sh \
       ./generate_eeschema_conf.sh \
       /root/
 
-RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN echo "deb http://ftp.debian.org/debian stretch-backports main" \
+    >> /etc/apt/sources.list && \
+    apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     ca-cacert \
     curl \
@@ -26,14 +26,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xauth \
     xdotool \
     xsltproc \
-    xvfb
-
-RUN apt-get -t stretch-backports install -y --no-install-recommends \
+    xvfb && \
+    apt-get -t stretch-backports install -y --no-install-recommends \
     kicad \
     kicad-common \
     kicad-footprints \
     kicad-symbols \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # cleanup
