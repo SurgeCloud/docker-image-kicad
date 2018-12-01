@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     xauth \
     xdotool \
+    xsltproc \
     xvfb
 
 RUN apt-get -t stretch-backports install -y --no-install-recommends \
