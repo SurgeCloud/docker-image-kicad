@@ -3,5 +3,5 @@ pipeline:
     image: plugins/docker
     repo: surgecloud/kicad-base
     registry: docker.io
-    tags: [latest, 0.0.4]
+    tags: [latest, 0.0.5]
     secrets: [docker_username, docker_password]
